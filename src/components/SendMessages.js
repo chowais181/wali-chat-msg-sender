@@ -4,10 +4,10 @@ import Papa from "papaparse";
 import "./MessageSender.css";
 const MessageSender = () => {
   const [googleSheetsCsvUrl, setGoogleSheetsCsvUrl] = useState(
-    localStorage.getItem("googleSheetsCsvUrl")
+    localStorage.getItem("googleSheetsCsvUrl") || ""
   );
-  const [token, setToken] = useState(localStorage.getItem("token"));
-  const [device, setDevice] = useState(localStorage.getItem("device"));
+  const [token, setToken] = useState(localStorage.getItem("token") || "");
+  const [device, setDevice] = useState(localStorage.getItem("device") || "");
   const [msg, setMsg] = useState("");
   const [err, setErr] = useState("");
 
@@ -33,9 +33,9 @@ const MessageSender = () => {
     setDevice("");
     setMsg("");
     setErr("");
-    localStorage.removeItem("googleSheetsCsvUrl");
-    localStorage.removeItem("token");
-    localStorage.removeItem("device");
+    localStorage.setItem("googleSheetsCsvUrl", "");
+    localStorage.setItem("token", "");
+    localStorage.setItem("device", "");
   };
 
   const handleSubmit = async (event) => {
