@@ -40,6 +40,8 @@ const MessageSender = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setMsg("");
+    setErr("");
     try {
       console.log("=> Downloading Google Sheets CSV file...");
       setMsg("Downloading Google Sheets CSV file...");
