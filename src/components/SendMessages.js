@@ -24,7 +24,12 @@ const MessageSender = () => {
   };
 
   // Define the URL for the WaliChat API
-  const url = "https://api.wali.chat/v1/messages";
+  const path = "https://api.wali.chat/v1/messages";
+  // const url = "/v1/messages";
+  // const url = "http://localhost:8080/https://api.wali.chat/v1/messages";
+  // const proxyUrl = "https://cors-anywhere.herokuapp.com/corsdemo/";
+
+  const url = `https://proxy.cors.sh/${path}`;
 
   const resetHandler = (event) => {
     event.preventDefault();
