@@ -1,7 +1,7 @@
 const corsAnywhere = require("cors-anywhere");
 
-const host = "0.0.0.0";
 const port = 8080;
+const host = process.env.HOST || "localhost";
 
 corsAnywhere
   .createServer({
