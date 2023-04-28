@@ -1,12 +1,15 @@
-const corsAnywhere = require("cors-anywhere");
-require("dotenv").config();
-const port = 8080;
-const host = process.env.HOST || "localhost";
+const cors_proxy = require("cors-anywhere");
+// Listen on a specific host via the HOST environment variable
+const host = process.env.HOST || "0.0.0.0";
+// Listen on a specific port via the PORT environment variable
+const port = process.env.PORT || 8080;
 
-corsAnywhere
+cors_proxy
   .createServer({
-    originWhitelist: ["https://wali-chat-msg-sender.vercel.app/"], // Allow all origins
+    originWhitelist: [], // Allow all origins
+    requireHeader: ["origin", "x-requested-with"],
+    removeHeaders: ["cookie", "cookie2"],
   })
-  .listen(port, host, () => {
-    console.log(`CORS Anywhere server running on ${host}:${port}`);
+  .listen(port, host, function () {
+    console.log("Running CORS Anywhere on " + host + ":" + port);
   });
