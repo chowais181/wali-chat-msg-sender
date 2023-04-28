@@ -24,7 +24,10 @@ const MessageSender = () => {
   };
 
   // Define the URL for the WaliChat API
+  // const url = "http://localhost:8080/https://api.wali.chat/v1/messages";
   const url = "https://wali-chat.coduko.com/https://api.wali.chat/v1/messages";
+
+  // const url = "https://api.wali.chat/v1/messages";
 
   const resetHandler = (event) => {
     event.preventDefault();
